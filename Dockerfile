@@ -13,9 +13,8 @@ RUN apt-get update
 # Get Rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
-RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 
 RUN git init .
 RUN git pull https://github.com/DOD-Blockchain/miner-rust
-RUN cargo build --release
+RUN $HOME/.cargo/bin/cargo build --release
 RUN ./target/release/dod_miner miner --cycles_price=5 --wif=KxJbXSLEQPH2uqioe28seaKURnPEJqnmKgm6uhr645iC2XwypKmg
