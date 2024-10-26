@@ -13,7 +13,7 @@ RUN apt-get update
 # Get Rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
-RUN /bin/bash -c "source ~/.cargo/env"
+RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 
 RUN git init .
 RUN git pull https://github.com/DOD-Blockchain/miner-rust
